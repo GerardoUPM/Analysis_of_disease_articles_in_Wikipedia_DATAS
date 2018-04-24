@@ -1,0 +1,8 @@
+SELECT DISTINCT str(?umlsID) as ?umlsID, 
+                        str(?diseasename) as ?diseasename
+        WHERE { 
+            ?disease a ncit:C7057, sio:SIO_010299;
+                      sio:SIO_000008 <http://purl.bioontology.org/ontology/STY/T047>;
+                      dcterms:identifier ?umlsID;
+                      dcterms:title ?diseasename}
+        ORDER BY (?umlsID)
