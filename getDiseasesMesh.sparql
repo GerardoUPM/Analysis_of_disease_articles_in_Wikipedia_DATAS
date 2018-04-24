@@ -1,0 +1,21 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
+
+ SELECT DISTINCT count(?d)
+ FROM <http://id.nlm.nih.gov/mesh>
+
+ WHERE {
+
+ ?d a meshv:Descriptor .
+ ?d meshv:treeNumber ?tn .     
+
+ FILTER(REGEX(?tn,".*C01.*|.*C02.*|.*C03.*|.*C04.*|.*C05.*|.*C06.*|.*C07.*|.*C08.*|.*C09.*|.*C010.*|.*C011.*|.*C012.*|.*C013.*|.*C014.*|.*C015.*|.*C016.*|.*C017.*|.*C018.*|.*C019.*|.*C020.*|.*C021.*|.*C023.*|.*C024.*|.*C025.*|.*C026.*|.*F03.*"))
+   
+ }
